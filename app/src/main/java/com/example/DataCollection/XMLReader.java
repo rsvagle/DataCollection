@@ -26,9 +26,18 @@ public class XMLReader implements IReader{
 	private Study myStudy;
 	Readings readings = new Readings();
 	
+	/**
+	 * Initializes the parser factory
+	 */
+	
 	public XMLReader() {
 		saxParserFactory = SAXParserFactory.newInstance();
 	}
+	
+	/**
+	 * parses XML file
+	 * @param is
+	 */
 	
 	public void readXML(InputStream is) {
 		try {
@@ -51,6 +60,8 @@ public class XMLReader implements IReader{
 	
 	/**
 	 * Read the XML file
+	 * @return
+	 * readings list
 	 */
 	public Readings getReadings(InputStream is)  throws Exception{
 		this.readXML(is);
@@ -60,6 +71,7 @@ public class XMLReader implements IReader{
 	/**
 	 * This method returns the study imported from the input file
 	 * @return
+	 * myStudy
 	 */
 	public Study getStudy(InputStream is)  throws Exception{
 		this.readXML(is);

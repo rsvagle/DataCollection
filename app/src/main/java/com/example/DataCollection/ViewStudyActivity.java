@@ -1,3 +1,4 @@
+
 package com.example.DataCollection;
 
 import android.app.Dialog;
@@ -50,6 +51,7 @@ public class ViewStudyActivity extends AppCompatActivity {
         Button studyAddReadingsButton = findViewById(R.id.add_readings_btn);
         Button exportStudyButton = findViewById(R.id.export_study_btn);
         Button addSiteButton = findViewById(R.id.add_site_btn);
+        Button studyAddSitesFromFileButton = findViewById(R.id.add_sites_from_file_btn);
 
         siteListView = findViewById(R.id.site_list_view);
         adapter = new SiteListAdapter(myContext, R.layout.adapter_site_list, currentStudy.getAllSites());
@@ -103,7 +105,7 @@ public class ViewStudyActivity extends AppCompatActivity {
         });
 
         /*
-         * Add readings from file button
+         * Add Sites from file button
          */
         studyAddReadingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,6 +146,61 @@ public class ViewStudyActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "File Not Found!", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
+                        }
+                        finally {
+                            dialog.dismiss();
+                        }
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+        /*
+         * Add Sites from file button
+         */
+        studyAddSitesFromFileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(myContext);
+                dialog.setContentView(R.layout.dialog_add_readings);
+                dialog.setTitle("Add readings");
+
+                /*
+                 * set the custom dialog components - text, image and button
+                 */
+                final EditText getFileNameText =  dialog.findViewById(R.id.dialog_get_file_name);
+                dialogCancelButton = dialog.findViewById(R.id.dialog_cancel_btn);
+                dialogConfirmButton = dialog.findViewById(R.id.dialog_confirm_btn);
+
+                dialogCancelButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getApplicationContext(), "Operation Cancelled!", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                });
+
+                dialogConfirmButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String filePath = getFileNameText.getText().toString();
+                        try {
+                            FileInputStream fileInputStream = myContext.openFileInput(filePath);
+                            iReaderFactory = new IReaderFactory(filePath);
+                            Readings importedReadings = iReaderFactory.getIReader().getReadings(fileInputStream);
+                            theRecord.getStudyByID(currentStudy.getStudyID()).setSitesForReading(importedReadings);
+                            theRecord.getStudyByID(currentStudy.getStudyID()).addReadings(importedReadings);
+                            Toast.makeText(getApplicationContext(), "Readings Added successfully!", Toast.LENGTH_SHORT).show();
+                            SiteListAdapter newAdapter = new SiteListAdapter(myContext, R.layout.adapter_site_list, currentStudy.getAllSites());
+                            siteListView.setAdapter(newAdapter);
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "File Not Found!", Toast.LENGTH_SHORT).show();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                         }
                         finally {
                             dialog.dismiss();
@@ -191,6 +248,7 @@ public class ViewStudyActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "File Not Found!", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Something went Wrong!", Toast.LENGTH_SHORT).show();
                         }
                         finally {
                             dialog.dismiss();
@@ -223,3 +281,4 @@ public class ViewStudyActivity extends AppCompatActivity {
         siteListView.setAdapter(adapter);
     }
 }
+

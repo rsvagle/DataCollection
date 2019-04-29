@@ -51,7 +51,9 @@ public class XMLSAXParserHandler extends DefaultHandler {
 	
 	/**
 	 * Method called at the start of a document element
+	 * @param uri, localName, qName, attributes
 	 */
+	
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException{		
 		if(qName.equalsIgnoreCase("Study")) {
@@ -92,6 +94,7 @@ public class XMLSAXParserHandler extends DefaultHandler {
 	
 	/**
 	 * Method called at the end of a document element
+	 * @param uri, localName, qName
 	 */	
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException{
@@ -117,6 +120,7 @@ public class XMLSAXParserHandler extends DefaultHandler {
 	/**
 	 * Method called with the text contents in between the start and end 
 	 * tags of an XML document element.
+	 * @param ch, start, length
 	 */
 	@Override
 	public void characters(char ch[], int start, int length) throws SAXException {

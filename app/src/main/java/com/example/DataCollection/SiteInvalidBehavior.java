@@ -10,7 +10,7 @@ public class SiteInvalidBehavior implements IBehavior, Serializable {
 
     @SerializedName("invalid_behavior_type")
     @Expose
-    private String invalidBehaviorType = "Invalid";
+    private final String INVALID_BEHAVIOR_TYPE = "Invalid";
 
     /**
      * Checks if site contains a certain reading.
@@ -56,6 +56,6 @@ public class SiteInvalidBehavior implements IBehavior, Serializable {
 
     @Override
     public String behaviorTypeToString() {
-        return invalidBehaviorType;
+        return INVALID_BEHAVIOR_TYPE;
     }
 }

@@ -32,9 +32,7 @@ public class MainActivity extends AppCompatActivity {
 	/**
 	 * onCreate starts up the GUI for the android application, while 
 	 * it also checks to see if a previous state has been saved to reopen. 
-	 * @param savedInstanceSate
-	 * 
-	 * @return
+	 *
 	 * void
 	 */
     
@@ -85,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 /*
                  * set the custom dialog components - text, image and button
                  */
-//                TextView askFileNameText = dialog.findViewById(R.id.dialog_ask_file_name);
+
                 final EditText getFileNameText = dialog.findViewById(R.id.dialog_get_file_name);
 
                 dialogCancelButton = dialog.findViewById(R.id.dialog_cancel_btn);
@@ -115,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                             getFileNameText.requestFocus();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_LONG).show();
                         } finally {
                             dialog.dismiss();
                         }
@@ -137,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 /*
                  * set the custom dialog components - text, image and button
                  */
-//                TextView askFileNameText = dialog.findViewById(R.id.dialog_ask_file_name);
+
                 final EditText getFileNameText = dialog.findViewById(R.id.dialog_get_file_name);
 
                 dialogCancelButton = dialog.findViewById(R.id.dialog_cancel_btn);
@@ -165,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "File Not Found!", Toast.LENGTH_SHORT).show();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_LONG).show();
                         } finally {
                             dialog.dismiss();
                         }
@@ -187,8 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 /*
                  * set the custom dialog components - text, image and button
                  */
-//                TextView askIdText = dialog.findViewById(R.id.dialog_ask_study_id);
-//                TextView askNameText = dialog.findViewById(R.id.dialog_ask_study_name);
+
                 final EditText getIdText = dialog.findViewById(R.id.dialog_get_study_id);
                 final EditText getNameText = dialog.findViewById(R.id.dialog_get_study_name);
 
@@ -235,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
                 /*
                  * set the custom dialog components - text, image and button
                  */
-//                TextView askFileNameText = dialog.findViewById(R.id.dialog_ask_output_file_name);
+
                 final EditText getFileNameText = dialog.findViewById(R.id.dialog_get_file_name);
 
                 dialogCancelButton = dialog.findViewById(R.id.dialog_cancel_btn);
@@ -261,6 +260,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "File Not Found!", Toast.LENGTH_LONG).show();
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Something went Wrong", Toast.LENGTH_LONG).show();
                         } finally {
                             dialog.dismiss();
                         }
@@ -272,10 +272,8 @@ public class MainActivity extends AppCompatActivity {
     }
     
 	/**
-	 * onStop saved the record to internal storage.  
-	 * @param void
-	 * 
-	 * @return
+	 * onStop saved the record to internal storage.
+	 *
 	 * void
 	 */
 

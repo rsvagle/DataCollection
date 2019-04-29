@@ -10,7 +10,7 @@ public class CompletedStudyBehavior implements IBehavior, Serializable {
 
     @SerializedName("completed_behavior_type")
     @Expose
-    private String completedBehaviorType = "Complete";
+    private final String COMPLETE_BEHAVIOR_TYPE = "Complete";
 
     /**
      * Checks if site contains a certain reading.
@@ -59,6 +59,6 @@ public class CompletedStudyBehavior implements IBehavior, Serializable {
 
     @Override
     public String behaviorTypeToString() {
-        return completedBehaviorType;
+        return COMPLETE_BEHAVIOR_TYPE;
     }
 }

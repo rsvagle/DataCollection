@@ -10,7 +10,7 @@ public class CollectionDisabledBehavior implements IBehavior, Serializable {
 
     @SerializedName("disabled_behavior_type")
     @Expose
-    private String disabledBehaviorType = "Collection Disabled";
+    private final String DISABLE_BEHAVIOR_TYPE = "Collection Disabled";
     
     /**
      * Takes a Site reading array, and item,  and the Site ID and returns false
@@ -59,6 +59,6 @@ public class CollectionDisabledBehavior implements IBehavior, Serializable {
 
     @Override
     public String behaviorTypeToString() {
-        return disabledBehaviorType;
+        return DISABLE_BEHAVIOR_TYPE;
     }
 }

@@ -181,6 +181,7 @@ public class Site  implements Serializable {
 	 * return true if the new item is added to site
 	 */
 	public boolean addItem(Item i) {
+		myBehavior = getSerializedBehavior();
 		return myBehavior.addItem(siteReadings, i, siteID);
 	}
 	
@@ -196,7 +197,7 @@ public class Site  implements Serializable {
 		if(this.recording) {
 			for(Item item : readings.getReadings()) {
 				this.addItem(item);
-				result = siteReadings.containsValue(item);
+				result = siteReadings.containsKey(item.getReadingID());
 			}
 		}
 		return result;

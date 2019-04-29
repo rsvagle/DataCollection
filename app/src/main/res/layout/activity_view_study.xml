@@ -6,13 +6,14 @@
     android:orientation="vertical"
     android:background="@color/backgroundColor"
     tools:context="com.example.DataCollection.ViewStudyActivity">
+    <include layout="@layout/content_view_study" />
 
     <Button
         android:id="@+id/add_readings_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/study_id_tv"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="10sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8dp"
@@ -20,6 +21,24 @@
         android:paddingLeft="8sp"
         android:paddingRight="8sp"
         android:text="@string/add_readings_btn"
+        android:textAllCaps="false"
+        android:textColor="@color/whiteText"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/add_sites_from_file_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/add_readings_btn"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10sp"
+        android:layout_marginStart="8sp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_round"
+        android:paddingLeft="8sp"
+        android:paddingRight="8sp"
+        android:text="@string/add_site_from_file"
         android:textAllCaps="false"
         android:textColor="@color/whiteText"
         android:textSize="16sp"
@@ -106,6 +125,7 @@
         android:textAllCaps="false"
         android:textStyle="bold"
         android:layout_marginStart="8sp"
+        android:paddingStart="8sp"
         android:paddingEnd="8sp"
         android:textSize="18sp" />
 
