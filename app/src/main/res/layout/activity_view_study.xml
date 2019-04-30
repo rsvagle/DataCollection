@@ -94,11 +94,44 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <LinearLayout
+        android:id="@+id/col_names_site"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="8sp"
+        android:layout_below="@id/choose_site_text"
+        android:textColor="@color/whiteText"
+
+        android:weightSum="100">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:text="@string/sitecolumnstudyid"
+            android:textColor="@color/whiteText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="25"
+            android:text="@string/sitecolumn_site_id"
+            android:textColor="@color/whiteText" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="55"
+            android:text="@string/sitecolumn_site_status"
+            android:textColor="@color/whiteText" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/site_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/choose_site_text"
+        android:layout_below="@id/col_names_site"
         android:layout_above="@id/export_study_btn"
         />
 

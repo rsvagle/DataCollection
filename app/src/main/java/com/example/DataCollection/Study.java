@@ -167,7 +167,7 @@ public class Study implements Serializable {
 	/**
 	 * This method takes an ID string as parameter and return 
 	 * a site from study that match the input string ID
-	 * @param siteID
+	 * @param siteId
 	 * @return
 	 * a Site is return to the caller
 	 */
@@ -183,17 +183,6 @@ public class Study implements Serializable {
 	public ArrayList<Site> getAllSites() {
 		ArrayList<Site> mySites = new ArrayList<Site>(associatedSites.values());
 		return mySites;
-	}
-	
-	/**
-	 * Removes empty sites from the study
-	 */
-	public void removeEmptySite() {
-		for (Site s : associatedSites.values()) {
-			if (s.isEmpty()) {
-				associatedSites.remove(s.getSiteID());
-			} 
-		}
 	}
 	
 	/**

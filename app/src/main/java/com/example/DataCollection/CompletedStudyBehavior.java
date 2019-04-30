@@ -13,10 +13,11 @@ public class CompletedStudyBehavior implements IBehavior, Serializable {
     private final String COMPLETE_BEHAVIOR_TYPE = "Complete";
 
     /**
-     * Checks if site contains a certain reading.
-     * @param siteReadings The site readings
-     * @param i The item to be added
-     * @param siteID The site ID for reference
+     * The Completed Study Behavior does not
+     * add an item to a site when the addItem method is called
+     * @param siteReadings The readings for the site
+     * @param i The item to add
+     * @param siteID The site id for reference
      * @return
      * false
      */
@@ -27,34 +28,35 @@ public class CompletedStudyBehavior implements IBehavior, Serializable {
     }
 
     /**
-     * Takes a Site and reading and returns whether or not
-     * the readings were added
+     * The Completed Study Behavior takes a Site and readings and
+     * does not add the readings to the site.
      * @param s The site
      * @param r The set of readings
-     * @return
-     * false
+     * @return boolean indicating the readings were not added
      */
 
     @Override
     public boolean addReadings(Site s, Readings r) {
         return false;
     }
-    
+
     /**
-     * Writes collection disabled to text
+     * Formats the site's readings for output in the view
+     * based on the specific behavior
      * @param s The site
      * @return
-     * "Completed Study"
+     * The current site to text
      */
 
     @Override
     public String toString(Site s) {
         return "Completed Study\n" + s.toString();
     }
-    
+
     /**
+     * Returns the Completed Study Behavior string for serialization
      * @return
-     * the Completed Behavior Type
+     * the COMPLETE_BEHAVIOR_TYPE string
      */
 
     @Override

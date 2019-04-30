@@ -15,10 +15,8 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 /**
- * 
- * This class responsibility is to read an XML file
+ * The XMLReader class's responsibility is to read an XML file
  * It has a default constructor
- *
  */
 
 public class XMLReader implements IReader{
@@ -35,8 +33,8 @@ public class XMLReader implements IReader{
 	}
 	
 	/**
-	 * parses XML file
-	 * @param is
+	 * Reads XML file and prepares readings and study variables for output
+	 * @param is The input stream
 	 */
 	
 	public void readXML(InputStream is) {
@@ -59,21 +57,23 @@ public class XMLReader implements IReader{
 	}
 	
 	/**
-	 * Read the XML file
+	 * Reads the XML file and returns a Readings object
+	 * @param is The input stream
 	 * @return
 	 * readings list
 	 */
-	public Readings getReadings(InputStream is)  throws Exception{
+	public Readings getReadings(InputStream is) throws Exception{
 		this.readXML(is);
 		return readings;
 	}
 	
 	/**
-	 * This method returns the study imported from the input file
+	 * Reads the XML file and returns the study imported from the file
+	 * @param is The input stream
 	 * @return
 	 * myStudy
 	 */
-	public Study getStudy(InputStream is)  throws Exception{
+	public Study getStudy(InputStream is) throws Exception{
 		this.readXML(is);
 		myStudy.setSitesForReading(readings);
 		myStudy.addReadings(readings);

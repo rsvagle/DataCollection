@@ -13,12 +13,13 @@ public class ActiveSiteBehavior implements IBehavior, Serializable {
     private final String ACTIVE_BEHAVIOR_TYPE = "Active";
 
     /**
-     * Checks if site contains a certain reading.
+     * The Active Site Behavior adds a reading item to a given site's readings
+     * when the addItem method is called.
      * @param siteReadings The site readings
      * @param i The item to be added
      * @param siteId The site Id for reference
      * @return
-     * true if site contains reading
+     * true if the reading was added
      */
     
     @Override
@@ -35,12 +36,10 @@ public class ActiveSiteBehavior implements IBehavior, Serializable {
     }
 
     /**
-     * Takes a Site and reading and returns whether or not
-     * the readings were added
+     * The Active Site Behavior takes a Site and Readings and adds the readings to the site.
      * @param s The site
      * @param r The set of readings
-     * @return boolean
-     *
+     * @return boolean indicating whether or not the readings were added
      */
     
     @Override
@@ -49,7 +48,8 @@ public class ActiveSiteBehavior implements IBehavior, Serializable {
     }
 
     /**
-     * 
+     * Formats the site's readings for output in the view
+     * based on the specific behavior
      * @param s The site
      * @return
      * The current site to text
@@ -61,9 +61,9 @@ public class ActiveSiteBehavior implements IBehavior, Serializable {
     }
     
     /**
-     * 
+     * Returns the Active Site Behavior string for serialization
      * @return
-     * the active Behavior Type
+     * the ACTIVE_BEHAVIOR_TYPE string
      */
 
     @Override

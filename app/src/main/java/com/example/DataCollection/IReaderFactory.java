@@ -6,7 +6,7 @@ public class IReaderFactory {
 	IReader myReader;
 
 	/**
-	 * Gets file extension and File name
+	 * IReaderFactory constructor
 	 * @param fileName
 	 */
 	
@@ -28,7 +28,8 @@ public class IReaderFactory {
 	}
 	
 	/**
-	 * Figures out what reader to use
+	 * Determines which reader to use to read a given file.
+	 * The method will return a .json reader if it cannot decide which reader is appropriate.
 	 * @return
 	 * Which reader to use
 	 */

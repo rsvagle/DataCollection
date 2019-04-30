@@ -20,7 +20,8 @@ public class JSONReader implements IReader{
 	}
 
 	/**
-	 * The readFile method takes JSON files and reads them.
+	 * The readFile method takes a JSON file and reads it
+	 * in as a set of readings.
 	 * @param is The input stream
 	 * @return
 	 * void

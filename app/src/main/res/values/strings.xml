@@ -49,7 +49,7 @@
     <string name="title_activity_import_study">ImportStudyActivity</string>
     <string name="title_activity_add_readings">AddReadingsActivity</string>
     <string name="add_a_reading_btn">Add a Reading</string>
-    <string name="site_readings_text">The current readings for this site are:</string>
+    <string name="site_readings_text">Site Readings:</string>
     <string name="export_site_btn">Export Site</string>
     <string name="add_study_title">Add Study</string>
     <string name="dialog_ask_study_id">Enter the study id:</string>
@@ -73,4 +73,8 @@
     <string name="data_collector_title">Metro Data Collector</string>
     <string name="change_site_status">Change Site Status</string>
     <string name="add_site_from_file">Add Sites From File</string>
+    <string name="sitecolumnstudyid">Study</string>
+    <string name="sitecolumn_site_id">Site ID</string>
+    <string name="sitecolumn_site_status">Site Status</string>
+    <string name="sitecolumn_view_site">View Site</string>
 </resources>

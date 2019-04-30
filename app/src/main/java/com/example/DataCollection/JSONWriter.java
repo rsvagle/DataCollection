@@ -39,7 +39,7 @@ public class JSONWriter {
     
     
     /**
-     * WriteToFileRecord method takes as parameters an object to write,
+     * WriteToFileRecord method takes as parameters an record to write,
      * a file name, and a context. It writes the record to a file for storage
      * 
      * @param studyRecord The record to write to

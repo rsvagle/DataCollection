@@ -36,6 +36,8 @@ public class ViewSiteActivity extends AppCompatActivity {
 
     private TextView siteStatusTv;
     private TextView siteItemsTv;
+    private Button addReadingsButton;
+    private Button addAReadingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,8 @@ public class ViewSiteActivity extends AppCompatActivity {
         final String currentStudyID = (String) getIntent().getSerializableExtra("studyID");
         currentSite = theRecord.getStudyByID(currentStudyID).getSiteByID(currentSiteId);
 
-        Button addReadingsButton = findViewById(R.id.add_readings_btn);
-        Button addAReadingButton = findViewById(R.id.add_a_reading_btn);
+        addReadingsButton = findViewById(R.id.add_readings_btn);
+        addAReadingButton = findViewById(R.id.add_a_reading_btn);
         Button exportSiteButton = findViewById(R.id.export_site_btn);
         Button changeStatusButton = findViewById(R.id.change_site_status_button);
 
@@ -64,6 +66,7 @@ public class ViewSiteActivity extends AppCompatActivity {
         siteItemsTv.setMovementMethod(new ScrollingMovementMethod());
         siteItemsTv.setText(currentSite.getMyBehavior().toString(currentSite));
 
+        refresh();
 
         /*
          * Manually add a reading button
@@ -254,16 +257,15 @@ public class ViewSiteActivity extends AppCompatActivity {
                                 break;
 
                         }
-
                         siteStatusTv.setText(String.format("Site Status: %s", currentSite.getMyBehavior().behaviorTypeToString()));
                         siteItemsTv.setText(currentSite.getMyBehavior().toString(currentSite));
+                        refresh();
                         statusDialog.dismiss();
                     }
                 });
                 statusDialog = builder.create();
                 statusDialog.show();
             }
-
         });
     }
 
@@ -283,6 +285,14 @@ public class ViewSiteActivity extends AppCompatActivity {
     }
 
     public void refresh(){
+        if(!currentSite.isRecording()){
+            addAReadingButton.setVisibility(View.INVISIBLE);
+            addReadingsButton.setVisibility(View.GONE);
+        }
+        else{
+            addReadingsButton.setVisibility(View.VISIBLE);
+            addAReadingButton.setVisibility(View.VISIBLE);
+        }
         siteStatusTv.setText(String.format("Site Status: %s", currentSite.getMyBehavior().behaviorTypeToString()));
         siteItemsTv.setText(currentSite.getMyBehavior().toString(currentSite));
     }

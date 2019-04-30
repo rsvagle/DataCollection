@@ -9,9 +9,21 @@ import java.io.InputStream;
  */
 
 public interface IReader {
-	
+
+	/**
+	 * A reader must implement a method to return a set of readings.
+	 * @param is
+	 * @return
+	 * @throws Exception
+	 */
 	Readings getReadings(InputStream is) throws Exception;
-	
+
+	/**
+	 * A reader must implement a method to return a study.
+	 * @param is
+	 * @return
+	 * @throws Exception
+	 */
 	Study getStudy(InputStream is) throws Exception;
 
 }
